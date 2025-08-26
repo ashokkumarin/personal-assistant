@@ -1,12 +1,25 @@
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 900,
+    height: 700,
+    webPreferences: {
+      contextIsolation: true,
+      nodeIntegration: false
+    }
   })
 
-  win.loadFile('src/renderer/index.html')
+  // Try dev server first; if it fails, load built files
+  const devUrl = 'http://localhost:5173'
+  const prodIndex = path.join(__dirname, 'dist-electron', 'renderer', 'index.html')
+
+  win.webContents.once('did-fail-load', () => {
+    win.loadFile(prodIndex)
+  })
+
+  win.loadURL(devUrl)
 }
 
 app.whenReady().then(() => {

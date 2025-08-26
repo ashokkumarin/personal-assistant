@@ -13,7 +13,7 @@
     "start": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "start:dev": "concurrently -k \"vite\" \"electron --trace-warnings .\"",
     "build": "vite build && electron-builder",
-    "lint": "eslint . --ext .ts,.tsx"    
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "author": "Ashok kumar",
   "license": "ISC",
@@ -22,15 +22,16 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0",
-    "electron": "^26.0.0",
-    "concurrently": "^8.0.0",
-    "wait-on": "^7.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^5.0.1",
+    "concurrently": "^8.0.0",
+    "electron": "^26.0.0",
+    "electron-builder": "^24.0.0",
     "esbuild": "^0.17.0",
-    "electron-builder": "^24.0.0"
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "wait-on": "^7.0.0"
   }
 }
